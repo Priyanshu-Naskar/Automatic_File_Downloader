@@ -27,8 +27,9 @@ def user_input():
     
 def folder_creation():
         
+    if not os.path.exists(file_path):
         os.makedirs(file_path)
-        os.chdir(file_path)
+    os.chdir(file_path)
 
 def download_install():
     global choices
@@ -146,7 +147,8 @@ def removal():
         if file.endswith(".exe") or file.endswith(".msi"):
             os.remove(file)
 
-user_input()
-folder_creation()
-download_install()
-removal()
+while True:
+    user_input()
+    folder_creation()
+    download_install()
+    removal()
